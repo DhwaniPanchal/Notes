@@ -1,1 +1,69 @@
 
+Y = B0+B1X*+B2X2+..+BNXN
+Where y is an dependent variable and  x1, x2.. are independent variable
+b0 is constant b1,b2 is variable
+
+Linear Regressions:
+Homoscedasticity
+Multivariate normality
+Independence of errors
+Lack of multicollinearity
+
+Dummy variables:
+Profit = constant + r&dspend + admin + marketing + state 
+state is a variable, while rest are dollar values/
+We cant add a word in the equation. State is a categorical variable and not numerical
+We need to create a dummy variable for the categorical variable
+Every category we need to add a new column
+state = ny and cali
+create ny column and cali column
+binary column
+This way you expand the data set. These two columns are called dummy variables
+you add b4D1 ( D1 Can either be ny or cali)
+
+dummy variables work like light switches. Theres no coefficent for the equation where the state ny is 0.
+We only include ny and not cali column becuase when ny is 1 : cali will be 0 so we can treat is at constant.
+
+
+Dummy variable trap: Never include 2 dummy variables same time. Reason: we are duplicating the value 
+D2= 1-D1
+We cannot have constant, D1 and D2 all together. Always omit one dummy variable.
+
+Building a model:
+
+1. All in
+2.Backward elimination
+3. Forward selection
+4. Bidirectional elimination
+5. Score comparsion
+
+
+All in: Throw in all the variables : When do you think, when you have a prior knowledge. 
+you have too. like framework. YOu have to use these variables ex: Bank, predict credit.
+Preparing for BE.
+
+Backward elimination:
+1. Select a significance level to stay in the model SL = 5%
+2. Fit the full model with all the possible predictors.
+3. Consider a p-value with highest value. if p> SL then go to step 4 otherwise go to FIN
+4. Remove the predictor with highest p-value
+5. Fit model without this variable/
+   go to step 3./
+ You keep doing that till you get all p-values < Sl Then you go to FIN!8
+ 
+ Forward Selection:
+ 1. Select the significance level
+ 2. Fit all possible simple models. Select one which has the lowest p-value.
+ 3. Keep this variable. and fit all the possible models with one extra predictor added to the one you already have
+ 4.Consider the predictor with the lowest p-value. if p<sl, go to step 3. otherwise go to FIN.
+ WE will only stop when pvalue is greater than sl. Than we go to fin
+
+FIN: previous model.
+
+
+Bidirectional elimination:
+1. select sl to enter and to stay in the model.
+2. perform the nest step of forward selection ( new variables must have p<slenter)
+3. perform all the steps of be (old variables must have  p<slstay)
+4. no new variables can enter and old varibales can exit.
+Model ready!
